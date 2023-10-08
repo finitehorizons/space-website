@@ -19,17 +19,28 @@
         <!-- Our custom CSS -->
         <link rel="stylesheet" href="index.css" />
         <title>Frontend Mentor | Space tourism website</title>
+
+        <script src="index.js" defer></script>
     </head>
     <body class="home">
-        <header class="primary-header flex justify-between items-center">
+        <header class="primary-header flex">
             <div>
                 <img
                     src="/assets/shared/logo.svg"
                     alt="space-tourism-logo"
                     class="logo" />
             </div>
-            <nav class="glass-container">
-                <ul class="underline-indicators primary-navigation flex">
+            <button
+                class="mobile-nav-toggle hidden"
+                aria-controls="primary-navigation"
+                aria-expanded="false">
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav>
+                <ul
+                    id="primary-navigation"
+                    data-visible="false"
+                    class="underline-indicators primary-navigation flex">
                     <li
                         class="uppercase active letter-spacing-md text-white ff-sans-cond">
                         <a href="#"><span>00</span>Home</a>
