@@ -23,7 +23,8 @@
         <script src="index.js" defer></script>
     </head>
     <body class="home">
-        <header class="primary-header flex">
+        <a class="skip-to-content" href="#main">Skip to content</a>
+        <header class="primary-header flex items-center justify-between">
             <div>
                 <img
                     src="/assets/shared/logo.svg"
@@ -43,46 +44,50 @@
                     class="underline-indicators primary-navigation flex">
                     <li
                         class="uppercase active letter-spacing-md text-white ff-sans-cond">
-                        <a href="#"><span>00</span>Home</a>
+                        <a href="#"><span aria-hidden="true">00</span>Home</a>
                     </li>
                     <li
                         class="uppercase letter-spacing-md text-white ff-sans-cond">
-                        <a href="#"><span>01</span>destination</a>
+                        <a href="/destinations.html"><span aria-hidden="true">01</span>destination</a>
                     </li>
                     <li
                         class="uppercase letter-spacing-md text-white ff-sans-cond">
-                        <a href="#"><span>02</span>crew</a>
+                        <a href="#"><span aria-hidden="true">02</span>crew</a>
                     </li>
                     <li
                         class="uppercase letter-spacing-md text-white ff-sans-cond">
-                        <a href="" #><span>03</span>technology</a>
+                        <a href="" #><span aria-hidden="true">03</span>technology</a>
                     </li>
                 </ul>
             </nav>
         </header>
 
-        <div class="grid-container grid-container--home">
-            <div>
-                <h1
-                    class="text-accent ff-sans-cond uppercase letter-spacing-lg fs-500">
-                    So, you want to travel to
-                    <span class="fs-900 ff-serif text-white block">Space</span>
-                </h1>
-                <p class="text-accent">
-                    Let’s face it; if you want to go to space, you might as well
-                    genuinely go to outer space and not hover kind of on the
-                    edge of it. Well sit back, and relax because we’ll give you
-                    a truly out of this world experience!
-                </p>
-            </div>
+        
+            <main id="main" class="grid-container grid-container--home">
+                <div>
+                    <h1
+                        class="text-accent ff-sans-cond uppercase letter-spacing-lg fs-500">
+                        So, you want to travel to
+                        <span class="fs-900 ff-serif text-white block big-word"
+                            >Space</span
+                        >
+                    </h1>
+                    <p class="text-accent fs-400" style="line-height: 32px">
+                        Let’s face it; if you want to go to space, you might as
+                        well genuinely go to outer space and not hover kind of
+                        on the edge of it. Well sit back, and relax because
+                        we’ll give you a truly out of this world experience!
+                    </p>
+                </div>
 
-            <div>
-                <a
-                    class="large-button uppercase bg-white rounded-full ff-serif text-dark"
-                    href="#"
-                    >Explore</a
-                >
-            </div>
-        </div>
+                <div>
+                    <a
+                        class="large-button uppercase bg-white rounded-full ff-serif text-dark"
+                        href="#"
+                        >Explore</a
+                    >
+                </div>
+            </main>
+        
     </body>
 </html>
