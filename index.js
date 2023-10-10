@@ -7,6 +7,7 @@ navToggle.addEventListener("click", () => {
     nav.setAttribute("data-visible", newVisibility);
 
     // Change the background image based on the visibility state
-    const newIcon = newVisibility === "true" ? "icon-close.svg" : "icon-hamburger.svg";
+    const newIcon =
+        newVisibility === "true" ? "icon-close.svg" : "icon-hamburger.svg";
     navToggle.style.backgroundImage = `url(/assets/shared/${newIcon})`;
 });
