@@ -11,3 +11,4 @@ navToggle.addEventListener("click", () => {
         newVisibility === "true" ? "icon-close.svg" : "icon-hamburger.svg";
     navToggle.style.backgroundImage = `url(/assets/shared/${newIcon})`;
 });
+
