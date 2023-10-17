@@ -61,6 +61,19 @@
     }
 }
 
+@keyframes fade-out-animation {
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+
+    0% {
+        opacity: 1;
+    }
+}
+
 @keyframes rotateAnimate {
     0% {
         transform: rotate(0deg);
@@ -166,6 +179,12 @@ select {
 
 /* General Utility Classes */
 
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
 .flex {
     display: flex;
     gap: var(
@@ -208,7 +227,7 @@ select {
 }
 
 .flow--space-small {
-    --flow-space: 0.75rem;
+    --flow-space: 1.5rem;
 }
 
 .container {
@@ -558,13 +577,14 @@ select {
 }
 
 .number-indicators > * {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     background-color: hsl(var(--clr-dark));
     place-items: center;
     border: 1px solid hsl(var(--clr-light) / 0.25);
     aspect-ratio: 1;
     display: flex;
     border-radius: 50%;
+    font-size: 1.25rem;
 }
 
 .number-indicators > *:hover,
@@ -622,6 +642,7 @@ body {
 
     .tech {
         background-image: url(/assets/technology/background-technology-tablet.jpg);
+        background-position: center center;
     }
 }
 
@@ -653,6 +674,15 @@ body {
     place-items: center;
     padding-inline: 1rem;
     padding-bottom: 4rem;
+    /* animation: opacityAnimation 600ms linear 0ms; */
+}
+
+.grid-container > article {
+    /* animation: opacityAnimation 0.5s linear 0s; */
+}
+
+.grid-container > picture {
+    /* animation: opacityAnimation 0.5s linear 0s; */
 }
 
 .grid-container p:not([class]) {
@@ -660,7 +690,7 @@ body {
     outline: 1px solid green;
 }
 
-.numbered-title {
+main > .numbered-title {
     grid-area: title;
 }
 
@@ -673,14 +703,15 @@ body {
         "image"
         "tabs"
         "content";
+    opacity: 1;
+    /* animation: opacityAnimation 600ms linear 0ms; */
 }
 
 .grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
     align-self: start;
-    transition: opacityAnimation 0.5s;
-    animation: opacityAnimation 0.5s, rotateAnimate 85s linear infinite;
+    /* animation: opacityAnimation 0.5s, rotateAnimate 60s linear infinite; */
 }
 
 .grid-container--destination > .tab-list {
@@ -860,7 +891,9 @@ body {
 
     .grid-container--crew {
         justify-content: start;
-        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+        grid-template-columns:
+            minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem)
+            minmax(1rem, 1fr);
         grid-template-areas:
             ". title title ."
             ". content image ."
@@ -888,4 +921,147 @@ body {
     .grid-container--crew > picture > img {
         max-width: 90%;
     }
+
+    .grid-container--tech > picture {
+        max-width: 90%;
+        align-self: end;
+    }
+
+    /* .grid-container--tech > picture > img {
+        max-width: 90%;
+    } */
+
+    .grid-container--tech > .tech-details {
+        font-size: 2rem;
+    }
+}
+
+/* Technology Layout */
+/* Mobile */
+
+.grid-container--tech {
+    grid-template-areas:
+        "title"
+        "image"
+        "tabs"
+        "content";
+    --flow-space: 2rem;
+    padding-inline: 0;
+}
+
+.grid-container--tech .numbered-title {
+    grid-area: title;
+}
+
+.grid-container--tech .number-indicators {
+    grid-area: tabs;
+}
+
+.grid-container--tech .tech-info {
+    grid-area: content;
+}
+
+.grid-container--tech picture {
+    grid-area: image;
+}
+
+.number-indicators {
+    gap: 2rem;
+}
+
+.tech-details {
+    line-height: 1.5625rem;
+}
+
+.grid-container--tech > .tech-info[aria-selected="true"] {
+    opacity: 0;
+}
+
+@media (width >= 35rem) {
+    .number-indicators {
+        gap: 1rem;
+    }
+
+    .tech-details {
+        line-height: 1.75rem;
+    }
+}
+
+@media (width >= 45rem) {
+    .grid-container--tech {
+        --flow-space: 1.5rem;
+        justify-content: start;
+        align-content: start;
+        padding-inline: 0;
+        grid-template-columns:
+            minmax(1rem, 1fr) min-content minmax(min-content, 3fr)
+            minmax(0, 3fr) minmax(2rem, 1fr);
+        grid-template-areas:
+            ". title title title ."
+            ". tabs content image image";
+    }
+
+    .number-indicators {
+        flex-direction: column;
+        margin-right: auto;
+        padding-right: 3rem;
+        gap: 2.5rem;
+    }
+
+    .tech-info > header > h2 {
+        font-size: 1rem;
+    }
+
+    .tech-info > p {
+        font-size: 1.125rem;
+        line-height: 32px;
+        font-weight: lighter;
+    }
+
+    .grid-container--tech > picture {
+        margin-left: auto;
+    }
+}
+
+/* Footer Nav Mobile */
+.footer {
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    padding-bottom: 4px;
+    gap: 4rem;
+    letter-spacing: 2px;
+    border-bottom: solid 2px #eee;
+}
+
+.footer::after {
+    content: "";
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    z-index: 1;
+    background: hsl(var(--clr-white) / 0.2);
+    margin: 0 auto;
+}
+
+@media screen and (width >= 35rem) {
+    .footer {
+        display: none;
+    }
+}
+
+
+
+/* Add these styles to your existing CSS file */
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 500ms ease-in; /* Adjust the duration and easing as needed */
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 500ms ease-in; /* Adjust the duration and easing as needed */
 }
