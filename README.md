@@ -75,7 +75,7 @@ const changeTabFocus = (e) => {
 
 ## Author
 
-- Portfolio - [Click Me]()
+- Portfolio - [Click Me](https://christophergoodwin.netlify.app)
 - Github - [@finitehorizons](https://github.com/finitehorizons)
 - LinkedIn - [@finitehorizons](https://www.linkedin.com/in/finitehorizons/)
 
